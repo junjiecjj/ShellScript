@@ -827,3 +827,6 @@ awk '{sum += $4} END {printf "%d\n", sum}' student.txt
 
 
 
+
+
+

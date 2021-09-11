@@ -835,4 +835,3 @@ echo ${PASSWD} | sudo -S  apt install lnav
 
 
 
-

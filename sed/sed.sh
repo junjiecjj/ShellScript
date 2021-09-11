@@ -585,3 +585,5 @@ sed '{:start  /^\n*$/{$d ; N ; b start }}' data10.txt
 # 删除html标签
 sed 's/<[^>]*>//g ; /^$/d' data11.txt
 
+
+
