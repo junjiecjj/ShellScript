@@ -839,3 +839,10 @@ echo -e "${PURPLE_BLACK}**************************** 安装Lazygit  ************
 echo ${PASSWD} | sudo -S add-apt-repository ppa:lazygit-team/release
 echo ${PASSWD} | sudo -S apt-get update
 echo ${PASSWD} | sudo -S apt-get install lazygit
+
+
+
+
+
+echo -e "${PURPLE_BLACK}**************************** Ubuntu用户都应该安装的4个Linux应用  *********************${COLOR_RESET}\n"
+echo ${PASSWD} | sudo -S  synaptic  kodi  bleachbit
