@@ -841,8 +841,11 @@ echo ${PASSWD} | sudo -S apt-get update
 echo ${PASSWD} | sudo -S apt-get install lazygit
 
 
-
-
-
 echo -e "${PURPLE_BLACK}**************************** Ubuntu用户都应该安装的4个Linux应用  *********************${COLOR_RESET}\n"
+
+# https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650952515&idx=1&sn=e1b9d3b637dc5a23166c01b333680068&chksm=bd7a2b718a0da267af7462d589b7b0da18fb1ca15b670588d7a1d1994ccf69e0e3472c2fa86d&mpshare=1&scene=1&srcid=09208O4HfLikT31Ey2UnfVSy&sharer_sharetime=1632105692461&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=Afcg4YC23weZE8pBEX8IGck%3D&pass_ticket=mQR43SKvzRE4kfQG6Mp%2FdLXXQ15e4NJqTV%2B8tZHLPo7PNS5CG89pBQU7l4abxsFG&wx_header=0#rd
+
 echo ${PASSWD} | sudo -S  synaptic  kodi  bleachbit
+echo ${PASSWD} | sudo -S  add-apt-repository ppa:cappelikan/ppa
+echo ${PASSWD} | sudo -S apt update
+echo ${PASSWD} | sudo -S apt install mainline
