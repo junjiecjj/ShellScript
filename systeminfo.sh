@@ -252,6 +252,322 @@ echo "向设备发起I/O请求的CPU时间百分占比："$disk_sda_util
 
 
 
+#===========================================================
+#   CPU相关命令
+# https://docsxyz.com/wiki/centos/commands-cpu-information
+#============================================================
+
+# 您可以通过cat命令查看 /proc/cpuinfo 文件获取CPU的信息，如下所示：
+cat /proc/cpuinfo
+
+# lscpu命令根据 sysfs 和 /proc/cpuinfo 中显示CPU架构信息，如下所示：
+lscpu
+
+
+# 查看cpu型号
+cat /proc/cpuinfo |grep "model name" | uniq
+
+
+#  dmidecode 命令是用于查看Linux系统硬件信息的工具，通过 --type 参数指定查看处理器相关信息，如下所示：
+dmidecode -t  processor
+
+# lshw工具用于显示硬件配置的详细信息。可以使用 -C 参数来选择硬件类别，显示 CPU 信息如下所示：
+lshw -C CPU
+
+
+#  nproc命令显示处理器数量
+nproc
+
+# https://lijian.ac.cn/posts/2018/09/linux-information/
+# CPU型号
+cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+
+# 几颗核心
+# cat /proc/cpuinfo | grep physical | uniq -c
+
+# 查看CPU模式
+getconf LONG_BIT
+
+# 查看CPU运算flags
+cat /proc/cpuinfo | grep flags | grep ' lm ' | wc -l
+
+# 完整看cpu详细信息
+dmidecode | grep 'Processor Information'
+
+# 查看内存信息
+cat /proc/meminfo
+
+# 查看当前操作系统内核信息
+uname -a
+
+# 查看当前操作系统发行版信息
+cat /etc/issue | grep Linux
+
+# 查看机器型号
+dmidecode | grep "Product Name"
+
+# 查看网卡信息
+dmesg | grep -i eth
+
+
+
+# 总核数 = 物理CPU个数 X 每颗物理CPU的核数
+# 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+
+# 查看物理CPU个数
+cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+#或
+grep 'physical id' /proc/cpuinfo | sort -u | wc -l
+
+# 查看每个物理CPU中core的个数(即核数)
+cat /proc/cpuinfo| grep "cpu cores"| uniq
+#或者
+grep 'core id' /proc/cpuinfo | sort -u | wc -l
+
+# 查看逻辑CPU的个数
+cat /proc/cpuinfo| grep "processor"| wc -l
+#或者
+grep 'processor' /proc/cpuinfo | sort -u | wc -l
+
+# 查看CPU信息（型号）
+cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+#或者
+dmidecode -s processor-version
+
+#查看内 存信息
+# cat /proc/meminfo
+
+ # GPU相关命令
+# 查看显卡信息
+lspci | grep -i vga
+
+# 若使用NVIDIA显卡
+lspci | grep -i nvidia
+
+# 查看显卡详情
+lspci -v -s 00:0f.0
+
+# 查看显存使用情况
+nvidia-smi
+
+# 周期性输出显卡使用情况
+watch -n 10 nvidia-smi
+
+# 查看cuda版本
+cat /usr/local/cuda/version.txt
+
+# 查看cudnn版本
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+
+# https://blog.csdn.net/xg123321123/article/details/78117702
+# 查看物理CPU的个数
+cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
+
+
+# 查看逻辑CPU的个数
+cat /proc/cpuinfo |grep "processor"|wc -l
+
+
+# 查看每个CPU中core的个数(即核数)
+cat /proc/cpuinfo |grep "cores"|uniq
+
+
+# 查看CPU的主频
+cat /proc/cpuinfo |grep MHz|uniq
+
+#  查看CPU型号
+cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+
+# 查看CPU运行在32bit还是64bit模式
+getconf LONG_BIT
+
+
+# 查看CPU是否支持64bit计算
+cat /proc/cpuinfo | grep flags | grep ' lm ' | wc -l
+
+# 查看机器型号
+dmidecode | grep "Product Name"
+
+# 查看系统运行时间、用户数、负载
+uptime
+
+
+
+#===========================================================
+#   内存相关命令
+# https://www.cnblogs.com/ggjucheng/archive/2013/01/14/2859613.html
+#============================================================
+
+# 概要查看内存情况
+free -mh
+
+
+# 查看内存详细使用
+cat /proc/meminfo
+
+# 查看内存硬件信息
+dmidecode -t memory
+
+
+# 查看内存总量
+grep MemTotal /proc/meminfo
+
+
+# 查看空闲内存总量
+grep MemFree /proc/meminfo
+
+
+#===========================================================
+#   网络相关命令
+#============================================================
+# https://mp.weixin.qq.com/s?__biz=MzUxMjEyNDgyNw==&mid=2247500145&idx=2&sn=971786f023fd7feb93e4758f98cdd90d&chksm=f96bb385ce1c3a93f3fed317210c2a799f471056b0abf98f882f0fd464695f209a0214833f57&mpshare=1&scene=1&srcid=1130D7asobVULh7M9wiVxcDW&sharer_sharetime=1640345392044&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AdCmsWTTDkWExjIMas%2BG5kk%3D&pass_ticket=XxqSE3fWpMYE7U9fBYbnbbcTVemYMCwhsfz0nfuUybClUM4Z88AjObZ5U%2FCF7JjE&wx_header=0#rd
+# 在办公或家庭环境，我们的虚拟机或服务器上配置的通常是内网 IP 地址，我们如何知道，在与外网通信时，我们的公网出口 IP 是神马呢？
+# 这个在 Linux 上非常简单，一条命令搞定
+curl ip.sb
+curl ifconfig.me
+# 上述两条命令都可以
+
+
+
+#===========================================================
+#   磁盘、网卡相关命令a
+# https://www.cnblogs.com/ggjucheng/archive/2013/01/14/2859613.html
+#============================================================
+# 查看硬盘和分区分布
+lsblk
+
+# 如果要看硬盘和分区的详细信息
+fdisk -l
+
+
+
+#网卡
+#查看网卡硬件信息
+lspci | grep -i 'eth'
+
+# 查看系统的所有网络接口
+ifconfig -a
+# 或者是
+ip link show
+
+
+# 如果要查看某个网络接口的详细信息，例如eth0的详细参数和指标
+ethtool eth0
+
+
+# 查看pci信息，即主板所有硬件槽信息。
+lspci
+
+
+
+#===========================================================
+#   inix相关命令
+#============================================================
+# https://mp.weixin.qq.com/s?__biz=MjM5NjQ4MjYwMQ==&mid=2664645703&idx=2&sn=fb09bb320e8db0cfbc93721c22418282&chksm=bdcf7f018ab8f61771a4208aaf02452134b2692427bbb67bd0d53bf3bcbd28e91c7680104c77&mpshare=1&scene=1&srcid=1217nrIbQq4DuSdLUgoEeLky&sharer_sharetime=1640345430465&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AV763dpyVHX5L%2BoPf7S8e5s%3D&pass_ticket=XxqSE3fWpMYE7U9fBYbnbbcTVemYMCwhsfz0nfuUybClUM4Z88AjObZ5U%2FCF7JjE&wx_header=0#rd
+# inxi 是一个非常流行的工具，所以在大多数 Linux 发行版仓库中都可以轻松获取到该工具。不过还没有流行到各大 Linux 发行版默认就安装了该软件，所以需要我们自己安装一下。
+# sudo apt install inxi
+
+# 使用 -A 参数可以获取有关音频（输出）设备信息，包括物理音频（输出）设备、声音服务器以及音频驱动等详细信息。
+inxi -A
+
+
+# 使用 -B 参数，可以获取有关电池的信息（如果安装了电池）。你将读取到例如以 Wh（瓦特小时）为单位的当前电池电量和状况。
+# 因为我使用的是台式机，所以这里仅仅作为一个示例，让我们看看使用 inxi -B 会输出什么。
+inxi -B
+
+
+# -C 参数用于获取有关 CPU 的详细信息。比如包括 CPU 缓存大小、频率（单位 MHz，如果有多核，会显示每个核心的频率）、核心数、CPU 型号以及 CPU 是 32 位还是 64 位。
+inxi -C
+
+
+#使用 -F 参数可以获取更详细的系统信息（类似 -b 参数，但会更为详细）。几乎囊括了所有层次的系统信息。
+inxi -F
+
+# -G 参数可以获取和图形相关的信息。
+# 它会显示所有的图形设备（GPU）、正在使用的 GPU 驱动（有助于检查是否使用 Nvidia 驱动还是 nouveau 驱动）、显示输出分辨率和驱动程序版本。
+inxi -G
+
+
+
+#========================================================
+# Linux 查看CPU信息，机器型号，内存等信息
+# https://my.oschina.net/hunterli/blog/140783
+#========================================================
+
+# 系统
+# uname -a               # 查看内核/操作系统/CPU信息
+# head -n 1 /etc/issue   # 查看操作系统版本
+# cat /proc/cpuinfo      # 查看CPU信息
+# hostname               # 查看计算机名
+# lspci -tv              # 列出所有PCI设备
+# lsusb -tv              # 列出所有USB设备
+# lsmod                  # 列出加载的内核模块
+# env                    # 查看环境变量
+
+
+# 资源
+# free -m                # 查看内存使用量和交换区使用量
+# df -h                  # 查看各分区使用情况
+# du -sh <目录名>        # 查看指定目录的大小
+# grep MemTotal /proc/meminfo   # 查看内存总量
+# grep MemFree /proc/meminfo    # 查看空闲内存量
+# uptime                 # 查看系统运行时间、用户数、负载
+# cat /proc/loadavg      # 查看系统负载
+
+
+# 磁盘和分区
+# mount | column -t      # 查看挂接的分区状态
+# fdisk -l               # 查看所有分区
+# swapon -s              # 查看所有交换分区
+# hdparm -i /dev/hda     # 查看磁盘参数(仅适用于IDE设备)
+# dmesg | grep IDE       # 查看启动时IDE设备检测状况
+
+
+# 网络
+# ifconfig               # 查看所有网络接口的属性
+# iptables -L            # 查看防火墙设置
+# route -n               # 查看路由表
+# netstat -lntp          # 查看所有监听端口
+# netstat -antp          # 查看所有已经建立的连接
+# netstat -s             # 查看网络统计信息
+
+
+# 进程
+# ps -ef                 # 查看所有进程
+# top                    # 实时显示进程状态
+
+
+# 用户
+# w                      # 查看活动用户
+# id <用户名>            # 查看指定用户信息
+# last                   # 查看用户登录日志
+# cut -d: -f1 /etc/passwd   # 查看系统所有用户
+# cut -d: -f1 /etc/group    # 查看系统所有组
+# crontab -l             # 查看当前用户的计划任务
+
+
+# 服务
+# chkconfig --list       # 列出所有系统服务
+# chkconfig --list | grep on    # 列出所有启动的系统服务
+
+
+# 程序
+# rpm -qa                # 查看所有安装的软件包
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 while true
 do
     echo
