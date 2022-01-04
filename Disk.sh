@@ -66,6 +66,58 @@ stat 命令后面可以直接跟上文件或目录，用于显示文件/目录�
 
 fdisk -l 可以显示磁盘大小以及磁盘分区信息。
 
+https://mp.weixin.qq.com/s?__biz=MjM5NDEwNzc0MQ==&mid=2650947733&idx=4&sn=1a1eec23831a41b85b43f08f64062949&chksm=bd7a38a78a0db1b17673d0c7394a0b4aa9dcc9e02de19f59a06e5cb734d79413c4888b490969&mpshare=1&scene=24&srcid=0330R3CdoTYY9TLmrbC0wODr&sharer_sharetime=1617066235588&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AS4ctT1Y3IXi0lPQK9rcCu4%3D&pass_ticket=sC3CHeyQYGeccRKcEFZTc5QFPLkATfa%2FDaZUd3NqKSoJnLZycjrxRYed7dyRyTYS&wx_header=0#rd
+6款有用的监视Linux磁盘IO性能的命令
+
+介绍6款有用的监视Linux磁盘IO性能的命令（工具），它们分别是iotop、iostat、vmstat、atop、dstat、ioping，以下将附上简单的使用方法。
+
+前言
+磁盘IO问题（input/output）是造成Linux系统性能不佳的最常见原因之一。当应用程序试图在存储设备（例如硬盘驱动器、SAN和NAS）上快速读取或写入过多数据时，就会发生这种情况，这迫使应用程序和用户等待。
+top命令可用于查看CPU是否正在等待磁盘操作完成。“wa”度量标准显示IO等待，CPU等待IO完成所花费的时间（以百分比表示）。参考在Linux系统中使用top命令和ps命令查找高CPU消耗进程。
+在本文中，我们将说明如何使用各种Linux命令来确定磁盘IO性能问题。
+在对Linux上的实时磁盘活动进行故障排除或监视时，六个命令最有用，它们分别是：iotop、iostat、vmstat、atop、dstat、ioping。这些都是常用于实时测量磁盘I/O性能的命令，也较为容易掌握。
+1、iotop
+iotop是用于显示实时磁盘I/O性能的，类似于top的实用程序，它实际上显示执行I/O的进程的列表。运行带有'--only或-o'选项的iotop命令以查看磁盘I/O活动。
+linuxmi@linuxmi:~/www.linuxmi.com$ iotop --only
+
+注：
+o：仅显示实际正在执行I/O的进程或线程。
+2、iostat
+iostat命令用于监视设备和分区的系统输入/输出统计信息。它通过观察设备处于活动状态的时间（相对于其平均传输速率）来监视系统I/O。
+它带有与磁盘I/O相关的各种信息，可以通过运行以下命令来查看：
+linuxmi@linuxmi:~/www.linuxmi.com$ sudo iostat -dxm
+
+注：
+x：显示更多详细信息统计信息。
+d：仅显示设备报告。
+m：显示统计信息（以MB为单位）。
+3、vmstat
+vmstat命令代表虚拟内存统计信息。这是一个性能监视命令，除了提供内存外，它还提供有关块IO和CPU活动的信息。
+报告的第一行将包含自上次重新引导以来的平均I/O值，随后的行将显示实时统计信息：
+linuxmi@linuxmi:~/www.linuxmi.com$ vmstat -d 1 5
+
+注：
+d：仅显示磁盘统计信息。
+时间间隔（1）：每秒将重新测量统计信息并报告一次。
+计数值（5）：统计信息将在退出前报告五次。
+4、atop
+atop命令是另一个性能监视工具，它能够报告Linux系统上所有进程的活动（即使进程在该时间间隔内已完成）。
+它每10秒报告一次每个进程的统计信息，从而迅速掌握系统中发生的变化：
+linuxmi@linuxmi:~/www.linuxmi.com$ atop | grep DSK
+
+5、dstat
+dstat命令是另一个方便的工具，用于在性能调整测试、基准测试或故障排除期间监视系统。它克服了其他一些工具的局限性，并增加了一些额外的功能，更多的计数器和灵活性。
+默认情况下，它显示报告间隔为1秒：
+linuxmi@linuxmi:~/www.linuxmi.com$ dstat --disk --io
+
+对于特定的磁盘，运行：
+linuxmi@linuxmi:~/www.linuxmi.com$ dstat --disk --io -D sda
+6、ioping
+ioping用于实时监视I/O速度和延迟，而ping命令显示网络延迟。这个简单的实用程序使您能够了解磁盘响应请求需要多长时间：
+linuxmi@linuxmi:~/www.linuxmi.com$ sudo ioping /dev/sda5 -c4
+
+
+
 EOF
 
 df -ha

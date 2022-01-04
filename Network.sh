@@ -7,7 +7,7 @@
 
 # 此程序的功能是：
 
-https://mp.weixin.qq.com/s?__biz=MzAxODI5ODMwOA==&mid=2666560068&idx=2&sn=d033da5d8c9a3913c7d013f401ba751b&chksm=80dcbeefb7ab37f9d648d721f0dbf844d702961cdad98d10740efb9b9be823fc10613c9369ee&mpshare=1&scene=24&srcid=1227dfTke1zpJpUmA7lOPmL6&sharer_sharetime=1640577232744&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AYCUjeaJ7%2BxQOY%2Br1FC%2BfKs%3D&pass_ticket=sC3CHeyQYGeccRKcEFZTc5QFPLkATfa%2FDaZUd3NqKSoJnLZycjrxRYed7dyRyTYS&wx_header=0#rd
+# https://mp.weixin.qq.com/s?__biz=MzAxODI5ODMwOA==&mid=2666560068&idx=2&sn=d033da5d8c9a3913c7d013f401ba751b&chksm=80dcbeefb7ab37f9d648d721f0dbf844d702961cdad98d10740efb9b9be823fc10613c9369ee&mpshare=1&scene=24&srcid=1227dfTke1zpJpUmA7lOPmL6&sharer_sharetime=1640577232744&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AYCUjeaJ7%2BxQOY%2Br1FC%2BfKs%3D&pass_ticket=sC3CHeyQYGeccRKcEFZTc5QFPLkATfa%2FDaZUd3NqKSoJnLZycjrxRYed7dyRyTYS&wx_header=0#rd
 #########################################################################
 
 
@@ -125,7 +125,152 @@ hostname是在网络中识别。执行hostname命令以查看机器的主机名�
 # hostname
 rumenz.com
 
+13. netstat命令详解
+https://mp.weixin.qq.com/s?__biz=MzA4NzQzMzU4Mg==&mid=403434363&idx=4&sn=ad352de89ba037d85382f7e0f2d0624a&chksm=0dc6c37a3ab14a6cfa78f817d75129660c21e3d743cfca841aaf9463786d93099345422c2583&mpshare=1&scene=24&srcid=0723NsLCfZd2fIi6qTBxiTtX&sharer_sharetime=1627007523722&sharer_shareid=0d5c82ce3c8b7c8f30cc9a686416d4a8&exportkey=AVA%2F8wc%2BRTe%2F6opns9zdPqY%3D&pass_ticket=sC3CHeyQYGeccRKcEFZTc5QFPLkATfa%2FDaZUd3NqKSoJnLZycjrxRYed7dyRyTYS&wx_header=0#rd
 
+简介
+
+netstat 命令用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等。
+
+输出信息含义
+
+执行netstat后，其输出结果为:
+从整体上看，netstat的输出结果可以分为两个部分：
+1. Active Internet connections，称为有源TCP连接，其中"Recv-Q"和"Send-Q"指%0A的是接收队列和发送队列。这些数字一般都应该是0。如果不是则表示软件包正在队列中堆积。这种情况只能在非常少的情况见到。
+2. Active UNIX domain sockets，称为有源Unix域套接口(和网络套接字一样，但是只能用于本机通信，性能可以提高一倍)。
+Proto显示连接使用的协议,RefCnt表示连接到本套接口上的进程号,Types显示套接口的类型,State显示套接口当前的状态,Path表示连接到套接口的其它进程使用的路径名。
+
+-a (all)显示所有选项，默认不显示LISTEN相关
+-t (tcp)仅显示tcp相关选项
+-u (udp)仅显示udp相关选项
+-n 拒绝显示别名，能显示数字的全部转化成数字。
+-l 仅列出有在 Listen (监听) 的服务状态
+-p 显示建立相关链接的程序名
+-r 显示路由信息，路由表
+-e 显示扩展信息，例如uid等
+-s 按各个协议进行统计
+-c 每隔一个固定时间，执行该netstat命令。
+
+提示：LISTEN和LISTENING的状态只有用-a或者-l才能看到
+
+实用命令实例
+
+1. 列出所有端口 (包括监听和未监听的)
+
+列出所有端口 netstat -a
+
+# netstat -a | more
+
+列出所有 tcp 端口 netstat -at
+# netstat -at
+
+列出所有 udp 端口 netstat -au
+
+# netstat -au
+
+2. 列出所有处于监听状态的 Sockets
+
+只显示监听端口 netstat -l
+
+# netstat -l
+
+只列出所有监听 tcp 端口 netstat -lt
+
+# netstat -lt
+
+只列出所有监听 udp 端口 netstat -lu
+
+# netstat -lu
+
+只列出所有监听 UNIX 端口 netstat -lx
+
+# netstat -lx
+
+
+
+3. 显示每个协议的统计信息
+
+显示所有端口的统计信息 netstat -s
+
+# netstat -s
+
+显示 TCP 或 UDP 端口的统计信息 netstat -st 或 -su
+
+# netstat -st 
+# netstat -su
+
+4. 在 netstat 输出中显示 PID 和进程名称 netstat -p
+netstat -p 与其它参数一起使用就可以添加 “PID/进程名称” 到 netstat 输出中，这样 debugging 的时候可以很方便的发现特定端口运行的程序。
+
+# netstat -pt
+
+
+5. 在 netstat 输出中不显示主机，端口和用户名 (host, port or user)
+当你不想让主机，端口和用户名显示，使用 netstat -n。将会使用数字代替那些名称。
+
+# netstat -an
+
+如果只是不想让这三个名称中的一个被显示，使用以下命令
+
+# netsat -a --numeric-ports
+# netsat -a --numeric-hosts
+# netsat -a --numeric-users
+
+6. 持续输出 netstat 信息
+netstat 将每隔一秒输出网络信息。
+
+# netstat -c
+
+7. 显示系统不支持的地址族 (Address Families)
+
+netstat --verbose
+
+在输出的末尾，会有如下的信息
+
+8. 显示核心路由信息 netstat -r
+
+# netstat -r
+
+注意： 使用 netstat -rn 显示数字格式，不查询主机名称。
+
+9. 找出程序运行的端口
+并不是所有的进程都能找到，没有权限的会不显示，使用 root 权限查看所有的信息。
+
+# netstat -ap | grep ssh
+
+找出运行在指定端口的进程
+
+# netstat -an | grep ':80'
+
+10. 显示网络接口列表
+
+# netstat -i
+
+显示详细信息，像是 ifconfig 使用 netstat -ie:
+
+# netstat -ie
+
+11. IP和TCP分析
+查看连接某服务端口最多的的IP地址
+
+user@linuxprobe:~$ netstat -nat | grep "192.168.1.15:22" |awk '{print $5}'|awk -F: '{print $1}'|sort|uniq -c|sort -nr|head -20
+
+
+TCP各种状态列表
+
+user@linuxprobe:~$ netstat -nat |awk '{print $6}'
+
+先把状态全都取出来,然后使用uniq -c统计，之后再进行排序。
+
+user@linuxprobe:~$ netstat -nat |awk '{print $6}'|sort|uniq -c
+
+最后的命令如下:
+
+netstat -nat |awk '{print $6}'|sort|uniq -c|sort -rn
+
+分析access.log获得访问前10位的ip地址
+
+awk '{print $1}' access.log |sort|uniq -c|sort -nr|head -10
 
 EOF
 

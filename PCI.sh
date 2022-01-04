@@ -34,3 +34,27 @@ watch -n 10 nvidia-smi
 #网卡
 #查看网卡硬件信息
 lspci | grep -i 'eth'
+
+
+#  查看bios信息
+dmidecode -t bios
+
+#dmidecode以一种可读的方式dump出机器的DMI(Desktop Management Interface)信息。这些信息包括了硬件以及BIOS，既可以得到当前的配置，也可以得到系统支持的最大配置，比如说支持的最大内存数等。
+
+#如果要查看所有有用信息
+dmidecode -q
+#里面包含了很多硬件信息。
+
+#8. lsscsi查看SCSI控制器设备的信息
+#可以看到SCSI信息和所有虚拟磁盘以及光驱的信息，如果没有硬件SCSI控制器，那就不会返回信息：
+
+root@ubuntu:/home/peng# lsscsi
+#[2:0:0:0]    disk    VMware,  VMware Virtual S 1.0   /dev/sda 
+#[4:0:0:0]    cd/dvd  NECVMWar VMware SATA CD01 1.00  /dev/sr0 
+#插入一个U盘后再查看：
+
+root@ubuntu:/home/peng# lsscsi
+#[2:0:0:0]    disk    VMware,  VMware Virtual S 1.0   /dev/sda 
+#[4:0:0:0]    cd/dvd  NECVMWar VMware SATA CD01 1.00  /dev/sr0 
+#[33:0:0:0]   disk    Kingston DataTraveler G2  1.00  /dev/sdb 
+#可以看到U盘为Kingston。
