@@ -95,6 +95,49 @@ echo ${PASSWD} | sudo -S fc-cache -f -v
 echo -e "${GREEN_BLACK}************************* 5、安装 7-zip解压缩  等 *************************${COLOR_RESET}\n"
 echo ${PASSWD} | sudo -S apt install -y p7zip-full p7zip-rar
 
+
+echo -e "${GREEN_BLACK}************************* 6、安装字体 inconsolata 等 *************************${COLOR_RESET} \n"
+
+echo ${PASSWD} | sudo -S apt install -y fonts-inconsolata
+
+
+echo -e "${GREEN_BLACK}************************* 6、安装字体 Proggy 等 *************************${COLOR_RESET} \n"
+
+cd ~/tmp
+wget https://github.com/fangwentong/dotfiles/raw/master/ubuntu-gui/fonts/Monaco.ttf
+sudo mkdir -p /usr/share/fonts/custom
+sudo mv Monaco.ttf /usr/share/fonts/custom
+sudo chmod 744 /usr/share/fonts/custom/Monaco.ttf
+
+echo ${PASSWD} | sudo -S mkfontscale  #生成核心字体信息
+echo ${PASSWD} | sudo -S mkfontdir
+echo ${PASSWD} | sudo -S  fc-cache -fv
+cd
+
+
+echo -e "${GREEN_BLACK}************************* 6、安装字体 inconsolata 等 *************************${COLOR_RESET} \n"
+
+echo ${PASSWD} | sudo -S apt install -y fonts-inconsolata
+
+echo -e "${GREEN_BLACK}************************* 6、ubuntu安装Windows字体 *************************${COLOR_RESET} \n"
+
+echo ${PASSWD} | sudo -S apt-get install ttf-mscorefonts-installer
+echo ${PASSWD} | sudo -S apt-get --reinstall install ttf-mscorefonts-installer
+echo ${PASSWD} | sudo -S fc-cache -f -v
+
+
+echo -e "${GREEN_BLACK}************************* 6、ubuntu安装苹果字体 *************************${COLOR_RESET} \n"
+
+wget http://drive.noobslab.com/data/Mac/macfonts.zip -O mac-fonts.zip
+echo ${PASSWD} | sudo -S unzip mac-fonts.zip -d /usr/share/fonts/truetype
+rm mac-fonts.zip
+echo ${PASSWD} | sudo -S fc-cache -f -v
+
+cd /usr/share/fonts/mac-fonts
+echo ${PASSWD} | sudo -S mkfontscale && sudo mkfontdir && sudo fc-cache -fv
+cd
+
+
 echo -e "${GREEN_BLACK}************************* 6、安装字体 FiraCode 等 *************************${COLOR_RESET} \n"
 
 echo ${PASSWD} | sudo -S apt install -y fonts-firacode fonts-hack
