@@ -100,24 +100,60 @@ echo -e "${GREEN_BLACK}************************* 6、安装字体 inconsolata �
 
 echo ${PASSWD} | sudo -S apt install -y fonts-inconsolata
 
-
 echo -e "${GREEN_BLACK}************************* 6、安装字体 Proggy 等 *************************${COLOR_RESET} \n"
 
-cd ~/tmp
-wget https://github.com/fangwentong/dotfiles/raw/master/ubuntu-gui/fonts/Monaco.ttf
-sudo mkdir -p /usr/share/fonts/custom
-sudo mv Monaco.ttf /usr/share/fonts/custom
-sudo chmod 744 /usr/share/fonts/custom/Monaco.ttf
+echo ${PASSWD} | sudo -S apt install -y  fonts-proggy
 
-echo ${PASSWD} | sudo -S mkfontscale  #生成核心字体信息
-echo ${PASSWD} | sudo -S mkfontdir
+echo -e "${GREEN_BLACK}************************* 6、安装字体 YaHei Consolas Hybrid等 *************************${COLOR_RESET} \n"
+
+cd ~/tmp
+
+git clone https://github.com/yakumioto/YaHei-Consolas-Hybrid-1.12
+
+echo ${PASSWD} | sudo -S  mkdir -p /usr/share/fonts/truetype/YaHei\ Consolas\ Hybrid
+
+echo ${PASSWD} | sudo -S  cp YaHei\ Consolas\ Hybrid\ 1.12.ttf /usr/share/fonts/truetype/YaHei\ Consolas\ Hybrid
+
+cd /usr/share/fonts/truetype/YaHei\ Consolas\ Hybrid
+echo ${PASSWD} | sudo -S  chmod 644 YaHei\ Consolas\ Hybrid\ 1.12.ttf
+
+echo ${PASSWD} | sudo -S   mkfontscale  #生成核心字体信息
+echo ${PASSWD} | sudo -S  mkfontdir
 echo ${PASSWD} | sudo -S  fc-cache -fv
 cd
 
+echo -e "${GREEN_BLACK}************************* 6、安装字体 Consolas 等 *************************${COLOR_RESET} \n"
+#解压压缩包
+tar -zxvf YaHeiConsolas.tar.gz
+ 
+#在系统目录下创建自定义字体目录
+echo ${PASSWD} | sudo -S mkdir -p /usr/share/fonts/truetype/YaHeiConsolas
+ 
+#复制解压出来的字体到刚才创建的目录
+echo ${PASSWD} | sudo -S cp YaHeiConsolas.ttf /usr/share/fonts/truetype/YaHeiConsolas
+ 
+#修改字体权限
+echo ${PASSWD} | sudo -S chmod 644 /usr/share/fonts/truetype/YaHeiConsolas/*.ttf
+#进入字体目录
+cd /usr/share/fonts/truetype/YaHeiConsolas
+#刷新并安装字体
+echo ${PASSWD} | sudo -S   mkfontscale  #生成核心字体信息
+echo ${PASSWD} | sudo -S  mkfontdir
+echo ${PASSWD} | sudo -S  fc-cache -fv
+cd
 
-echo -e "${GREEN_BLACK}************************* 6、安装字体 inconsolata 等 *************************${COLOR_RESET} \n"
+echo -e "${GREEN_BLACK}************************* 6、安装Monaco字体 *************************${COLOR_RESET} \n"
 
-echo ${PASSWD} | sudo -S apt install -y fonts-inconsolata
+wget https://github.com/fangwentong/dotfiles/raw/master/ubuntu-gui/fonts/Monaco.ttf
+echo ${PASSWD} | sudo -S  mkdir -p /usr/share/fonts/truetype/monaco
+echo ${PASSWD} | sudo -S  mv Monaco.ttf /usr/share/fonts/truetype/monaco
+echo ${PASSWD} | sudo -S  chmod 744 /usr/share/fonts/truetype/monaco/Monaco.ttf
+cd /usr/share/fonts/truetype/monaco/
+echo ${PASSWD} | sudo -S   mkfontscale  #生成核心字体信息
+echo ${PASSWD} | sudo -S  mkfontdir
+echo ${PASSWD} | sudo -S  fc-cache -fv
+cd
+
 
 echo -e "${GREEN_BLACK}************************* 6、ubuntu安装Windows字体 *************************${COLOR_RESET} \n"
 
@@ -133,8 +169,10 @@ echo ${PASSWD} | sudo -S unzip mac-fonts.zip -d /usr/share/fonts/truetype
 rm mac-fonts.zip
 echo ${PASSWD} | sudo -S fc-cache -f -v
 
-cd /usr/share/fonts/mac-fonts
-echo ${PASSWD} | sudo -S mkfontscale && sudo mkfontdir && sudo fc-cache -fv
+cd /usr/share/fonts/truetype/mac-fonts
+echo ${PASSWD} | sudo -S   mkfontscale  #生成核心字体信息
+echo ${PASSWD} | sudo -S  mkfontdir
+echo ${PASSWD} | sudo -S  fc-cache -fv
 cd
 
 
