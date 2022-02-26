@@ -141,7 +141,7 @@ cd ~/tmp
 wget https://github.com/microsoft/cascadia-code/releases/download/v1909.16/Cascadia.ttf
 echo ${PASSWD} | sudo -S mkdir -p /usr/share/fonts/truetype/cascadia
 echo ${PASSWD} | sudo -S mv Cascadia.ttf /usr/share/fonts/truetype/cascadia/
-echo ${PASSWD} | sudo -S chmod 644 /usr/share/fonts/truetype/consolas/Cascadia.ttf
+echo ${PASSWD} | sudo -S chmod 644 /usr/share/fonts/truetype/cascadia/Cascadia.ttf
 
 echo ${PASSWD} | sudo -S   mkfontscale  #生成核心字体信息
 echo ${PASSWD} | sudo -S  mkfontdir
@@ -957,3 +957,32 @@ echo ${PASSWD} | sudo -S  synaptic  kodi  bleachbit
 echo ${PASSWD} | sudo -S  add-apt-repository ppa:cappelikan/ppa
 echo ${PASSWD} | sudo -S apt update
 echo ${PASSWD} | sudo -S apt install mainline
+
+
+echo -e "${PURPLE_BLACK}**************************** Markdown编辑器Notable  *********************${COLOR_RESET}\n"
+cd 
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+# add Typora's repository
+echo ${PASSWD} | sudo -S add-apt-repository 'deb https://typora.io/linux ./'
+echo ${PASSWD} | sudo -S apt-get update
+# install typora
+echo ${PASSWD} | sudo -S apt-get install typora
+
+echo -e "${PURPLE_BLACK}**************************** Markdown编辑器Notable  *********************${COLOR_RESET}\n"
+# bashtop
+echo ${PASSWD} | sudo -S add-apt-repository ppa:bashtop-monitor/bashtop 
+echo ${PASSWD} | sudo -S apt update 
+echo ${PASSWD} | sudo -S apt install bashtop
+
+
+#bpytop 的安装
+echo ${PASSWD} | sudo -S apt install bpytop
+
+#btop 的安装
+echo ${PASSWD} | sudo -S snap install btop
+
+#bottom 的安装
+cd ~/tmp
+curl -LO https://github.com/ClementTsang/bottom/releases/download/0.6.6/bottom_0.6.6_amd64.deb 
+echo ${PASSWD} | sudo -S dpkg -i bottom_0.6.6_amd64.deb
+
