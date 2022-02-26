@@ -192,7 +192,7 @@ echo ${PASSWD} | sudo -S fc-cache -f -v
 echo -e "${GREEN_BLACK}************************* 6、ubuntu安装苹果字体 *************************${COLOR_RESET} \n"
 
 wget http://drive.noobslab.com/data/Mac/macfonts.zip -O mac-fonts.zip
-echo ${PASSWD} | sudo -S unzip mac-fonts.zip -d /usr/share/fonts/truetype
+echo ${PASSWD} | sudo -S unzip mac-fonts.zip -d /usr/share/fonts/truetype/macfonts
 rm mac-fonts.zip
 echo ${PASSWD} | sudo -S fc-cache -f -v
 
@@ -960,7 +960,7 @@ echo ${PASSWD} | sudo -S apt install mainline
 
 
 echo -e "${PURPLE_BLACK}**************************** Markdown编辑器Notable  *********************${COLOR_RESET}\n"
-cd 
+cd
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
 # add Typora's repository
 echo ${PASSWD} | sudo -S add-apt-repository 'deb https://typora.io/linux ./'
@@ -970,8 +970,8 @@ echo ${PASSWD} | sudo -S apt-get install typora
 
 echo -e "${PURPLE_BLACK}**************************** Markdown编辑器Notable  *********************${COLOR_RESET}\n"
 # bashtop
-echo ${PASSWD} | sudo -S add-apt-repository ppa:bashtop-monitor/bashtop 
-echo ${PASSWD} | sudo -S apt update 
+echo ${PASSWD} | sudo -S add-apt-repository ppa:bashtop-monitor/bashtop
+echo ${PASSWD} | sudo -S apt update
 echo ${PASSWD} | sudo -S apt install bashtop
 
 
@@ -983,6 +983,6 @@ echo ${PASSWD} | sudo -S snap install btop
 
 #bottom 的安装
 cd ~/tmp
-curl -LO https://github.com/ClementTsang/bottom/releases/download/0.6.6/bottom_0.6.6_amd64.deb 
+curl -LO https://github.com/ClementTsang/bottom/releases/download/0.6.6/bottom_0.6.6_amd64.deb
 echo ${PASSWD} | sudo -S dpkg -i bottom_0.6.6_amd64.deb
 
