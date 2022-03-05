@@ -731,6 +731,10 @@ for (( a=1; a<4; a++ )); do
     done
 done
 
+array=(1 2 3 1)
+for (( i = 0; i < ${#array[*]}; i++ )); do
+    echo ${array[$i]}
+done
 
 #3 有时你在内部循环,但需要停止外部循环。break命令接受单个命令行参数值: break n
 
