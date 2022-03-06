@@ -9,16 +9,16 @@
 #########################################################################
 
 
-light_theme=(gruvbox-mix-light-medium belafonte-day edge-light synth-midnight-light solarized-light windows-95-light  man-pag  papercolor-light gruvbox-light-soft  novel  )
+light_theme=(gruvbox-mix-light-medium tokyo-day belafonte-day edge-light synth-midnight-light solarized-light windows-95-light  man-page  papercolor-light gruvbox-light-soft  novel)
 L1=${#light_theme[*]}
-# echo -e "L1 = ${L1}\n"
-index1=$(((${RANDOM} % ${L1})))
+echo -e "L1 = ${L1}\n"
+index1=$(((${RANDOM} % ${L1}+1)))
 # echo -e "index1 = ${index1}\n"
 
 dark_theme=(desert-night tango mellow-purple freya mathias goa-base vs-code-dark-plus  molokai yachiyo solarized-darcula mono-amber elic  desert  apathy  darcula urple warm-neon unikitty-dark elementary  solarized-dark-higher-contrast pico)
 L2=${#dark_theme[*]}
 # echo -e "L2 = ${L2}\n"
-index2=$(((${RANDOM} % ${L2})))
+index2=$(((${RANDOM} % ${L2}+1)))
 # echo -e "index2 = ${index2}\n"
 
 
@@ -52,3 +52,10 @@ echo "第二个元素为: ${my_array[1]}"
 echo "第三个元素为: ${my_array[2]}"
 echo "第四个元素为: ${my_array[3]}"
 echo "第四个元素为: ${my_array[4]}"
+
+
+array=(1 2 3 1)
+for (( i = 0; i < ${#light_theme[*]}; i++ )); do
+    echo -e "i = ${i}"
+    echo ${light_theme[$i+1]}
+done
