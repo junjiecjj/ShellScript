@@ -642,7 +642,9 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 
 echo "${GREEN_BLACK}************************* 28.0 安装nodejs *************************${COLOR_RESET}"
 
-echo ${PASSWD} | sudo -S add-apt-repository ppa:chris-lea/node.js
+# curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_14.x | echo ${PASSWD} | sudo -S -E bash -
+
 echo ${PASSWD} | sudo -S apt update
 echo ${PASSWD} | sudo -S apt install -y nodejs npm
 # 安装instant-markdown-d
