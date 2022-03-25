@@ -70,7 +70,7 @@ free -mh
 # 查看内存详细使用
 cat /proc/meminfo
 
-# 查看内存硬件信息
+# 查看内存硬件信息,一共支持多大内存，几个内存插口，每个内存插口插的内存条的情况
 dmidecode -t memory
 
 
