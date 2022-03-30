@@ -583,6 +583,11 @@ echo -e "${GREEN_BLACK}************************* 26、在 Ubuntu 20.04 上安装
 echo ${PASSWD} | sudo -S apt install zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
+# 配置文件
+cd ~ && curl -L https://raw.githubusercontent.com/junjiecjj/configure_file/master/zsh/zshrc_xiong-chiamiov-plus -o .zshrc  &&  source ~/.zshrc
+cd ~ && curl -L  https://raw.githubusercontent.com/junjiecjj/configure_file/master/zsh/.p10k.zsh  > .p10k.zsh
+
+
 echo -e "${GREEN_BLACK}************************* 26.1 安装 powerlevel9k  *************************${COLOR_RESET} \n"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
@@ -610,6 +615,11 @@ git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/plugins/zsh-nvm
 
 echo "${WHITE_BLUE}************************* 26.7 安装pyenv *************************${COLOR_RESET}\n"
 git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ~/.oh-my-zsh/plugins/pyenv-lazy
+
+
+echo "${WHITE_BLUE}************************* 26.7 安装powerlevel10k *************************${COLOR_RESET}\n"
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
 
 echo "${WHITE_BLUE}************************* 26.8 用 Rust 编写的极简且快速的 Shell 提示符 *************************${COLOR_RESET}\n"
 echo ${PASSWD} | sudo -S snap install starship
