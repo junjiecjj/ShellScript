@@ -57,3 +57,45 @@ lshw -html > /hardware.html
 
 
 EOF
+
+
+
+
+
+查看主板型号：
+dmidecode |grep -A16 "System Information$"
+
+
+
+
+sudo dmidecode  -t baseboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
