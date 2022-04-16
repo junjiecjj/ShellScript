@@ -1113,6 +1113,15 @@ wget -c https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0
 unzip exa-linux-x86_64-0.9.0.zip 
 mv exa-linux-x86_64 /usr/local/bin/exa
 
+
+或
+
+[root@localhost ~]# curl https://sh.rustup.rs -sSf | sh
+[root@localhost ~]# git clone https://github.com/ogham/exa/archive/v0.9.0.tar.gz
+[root@localhost ~]# cd exa
+[root@localhost exa-0.9.0]# make install
+
+
 显示选项
 -1，--oneline：每行显示一个条目
 
@@ -1325,7 +1334,7 @@ npm install -g diff-so-fancy
 echo -e "${PURPLE_BLACK}**************************** bat  *********************${COLOR_RESET}\n"
 
 
-
+sudo apt install ncdu
 
 
 echo -e "${PURPLE_BLACK}**************************** colordiff  *********************${COLOR_RESET}\n"
