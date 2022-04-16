@@ -998,3 +998,469 @@ cd ~/tmp
 curl -LO https://github.com/ClementTsang/bottom/releases/download/0.6.6/bottom_0.6.6_amd64.deb
 echo ${PASSWD} | sudo -S dpkg -i bottom_0.6.6_amd64.deb
 
+
+
+echo -e "${PURPLE_BLACK}**************************** 如何清晰美观的展现 Linux 文件系统  *********************${COLOR_RESET}\n"
+
+cd ~/tmp
+
+wget https://github.com/Canop/lfs/releases/download/v2.0.1/lfs_2.0.1.zip
+
+unzip lfs_2.0.1.zip
+
+sudo mv build/x86_64-linux/lfs /usr/local/bin/
+
+sudo chmod +x /usr/local/bin/lfs
+echo -e "${PURPLE_BLACK}**************************** axel 是命令行多线程下载工具，下载文件时可以替代 curl、wget。  *********************${COLOR_RESET}\n"
+
+
+sudo apt-get install axel
+
+
+axel 参数选项
+-n：指定线程数
+
+-o：指定另存为目录
+
+-s：指定每秒的最大比特数
+
+-q：静默模式
+
+案例
+# axel -n 10 -o /tmp/ http://mirrors.163.com/ubuntu/ls-lR.gz
+
+echo -e "${PURPLE_BLACK}****************************ack和ag是两个文本搜索工具，比自带的grep要好用得多。  *********************${COLOR_RESET}\n"
+
+
+sudo apt-get install silversearcher-ag
+sudo apt install ack
+
+ag 命令常用参数
+ag -g （文件名）：类似于 find . -name （文件名）
+
+ag -i sed：忽略大小写搜索含 sed 文本
+
+ag -A sed：搜索含 sed 文本，并显示匹配内容之后的 n 行文本
+
+ag -B sed：搜索含 sed 文本，并显示匹配内容之前的 n 行文本
+
+ag -C sed：搜索含 sed 文本，并同时显示匹配内容以及它前后各 n 行文本的内容
+
+ag -w sed：全匹配搜索，只搜索与所搜内容完全匹配的文本
+
+ag --java sed：在 java 文件中搜索含 sed 的文本
+
+ag --xml sed：在 XML 文件中搜索含 sed 的文本
+
+
+
+echo -e "${PURPLE_BLACK}**************************** fd  *********************${COLOR_RESET}\n"
+
+sudo apt install fd-find
+
+alias fd=fdfind
+
+在当前目录中搜索所有的 markdown 文件（.md 或.MD ），find 命令如下：
+
+find . -iname "*.md"
+
+
+简单搜索
+fd pace
+
+
+按指定类型进行搜索
+默认情况下，fd 会搜索所有符合条件的结果。如果你想指定搜索的类型可以使用 -t 参数，fd 目前支持四种类型：f、d、l、x，分别表示：文件、目录、符号链接、可执行文件。下面我们来看几个实际的例子：
+
+只搜索包含 pace 关键字的文件：
+fd -tf pace
+
+
+只搜索包含 pace 关键字的目录：
+fd -td pace
+
+搜索指定目录
+fd 默认会在当前目录和其下所有子目录中搜索，如果你想搜索指定的目录就需要在第二个参数中指定。例如：要在指定的 /etc 目录中搜索包含 passwd 关键字的文件或目录。
+fd passwd /etc
+
+
+fd 支持隐藏文件搜索，如果你需要搜索隐藏文件可以加上 -H 参数。例如：在当前目录下搜索关键字为 zshrc 的隐藏文件。：
+fd -H zshrc
+
+在当前目录下搜索文件扩展名为 md 的文件。
+fd -e md
+
+在当前目录下搜索文件名包含 reademe 且扩展名为 md 的文件。
+fd -e md readme
+
+
+搜索当前目录下除 lib 目录外的所有包含关键字 readme 的文件或目录。
+fd -E lib readme
+
+
+搜索指定目录下除文件名后缀为 js 的所有文件。
+fd  -E '*.js' -tf  . source/lib/fastclick
+
+
+
+
+
+echo -e "${PURPLE_BLACK}**************************** exa *********************${COLOR_RESET}\n"
+
+sudo apt install exa
+
+wget -c https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
+unzip exa-linux-x86_64-0.9.0.zip 
+mv exa-linux-x86_64 /usr/local/bin/exa
+
+显示选项
+-1，--oneline：每行显示一个条目
+
+-G，--grid：将条目显示为网格（默认）
+
+-l，--long：显示扩展细节和属性
+
+-R，--recurse：递归到目录
+
+-T，--tree：作为树递归到目录中
+
+-x，--across：对网格进行排序，而不是向下排序
+
+-F，--classify：按文件名显示类型指示器
+
+--colo[u]r：何时使用终端颜色
+
+--colo[u]r-scale : 清楚地突出显示文件大小的级别
+
+--icons : 显示图标
+
+--no-icons : 不显示图标（总是覆盖 --icons）
+
+过滤选项
+-a，--all：显示隐藏和“点”文件
+
+-d，--list-dirs：像普通文件一样列出目录
+
+-L，--level=(depth)：限制递归深度
+
+-r，--reverse：反转排序顺序
+
+-s，--sort=(field)：按哪个字段排序
+
+--group-directories-first：在其他文件之前列出目录
+
+-D，--only-dirs：只列出目录
+
+--git-ignore：忽略中提到的文件.gitignore
+
+-I，--ignore-glob=(globs)：要忽略的文件的全局模式（管道分隔）
+
+传递该--all选项两次以同时显示.和..目录。
+
+
+echo -e "${PURPLE_BLACK}**************************** glances  *********************${COLOR_RESET}\n"
+
+
+
+
+sudo apt install glances
+
+
+
+echo -e "${PURPLE_BLACK}**************************** tldr  *********************${COLOR_RESET}\n"
+
+sudo apt-get install nodejs
+
+sudo apt-get install npm
+
+sudo npm install -g tldr
+
+
+
+
+执行完上述三条命令后，还需要再执行tldr --update，更新tldr至最新的状态，然后就可以直接使用了；
+
+tldr --update
+tldr 的使用：
+
+tldr 命令的使用也非常简单，只需 tldr + 你所要查询的命令即可；
+
+
+
+
+
+echo -e "${PURPLE_BLACK}**************************** duf  *********************${COLOR_RESET}\n"
+
+
+$ sudo apt install gdebi
+#如果报错，Failed to fetch http://security.ubuntu.com......
+# sudo apt-get update
+
+$ sudo gdebi duf_0.5.0_linux_amd64.deb
+#要先在下载duf_0.5.0_linux_amd64.deb，下载地址为:https://github.com/muesli/duf/releases/download/v0.5.0/duf_0.5.0_linux_amd64.deb
+
+
+
+
+
+
+
+echo -e "${PURPLE_BLACK}**************************** bat  *********************${COLOR_RESET}\n"
+
+
+我是通过 Ubuntu 环境下安装的 bat，从 bat 的发布页面下载.deb文件，可执行如下命令进行下载和安装。
+
+sudo apt-get install wget
+wget https://github.com/sharkdp/bat/releases/tag/v0.18.3/bat_0.18.3_amd64.deb
+sudo dpkg -i bat_0.18.3_amd64.deb
+
+如果你不喜欢默认主题，也是可以根据自己的风格进行修改，只需执行：bat --list-themes命令，即可显示可用的主题。
+
+例如你要选择Dracula主题，可直接执行：bat --theme=Dracula 文件名
+使用新主题
+首先创建一个新的语法高亮主题的文件夹
+
+mkdir -p "$(bat --config-dir)/themes"
+cd "$(bat --config-dir)/themes"
+
+# Download a theme in '.tmTheme' format, for example:
+git clone https://github.com/greggb/sublime-snazzy
+
+# Update the binary cache
+bat cache --build
+最后使用 bat --list-themes 来检查新主题是否可用。
+
+
+使用教程
+查看一个文本：bat README.md
+查看多个文本：bat *.sh
+从标准输入中读入，自动语法高亮：curl -s https://sh.rustup.rs | bat
+显示不可打印的字符：bat -A /etc/hosts
+与其它工具集成：find README.md -exec bat {} +
+
+
+echo -e "${PURPLE_BLACK}**************************** Log File Navigator，简称lnav，是一款面向小规模的适用于 Linux 的高级日志文件查看器。 *********************${COLOR_RESET}\n"
+
+
+sudo snap install lnav
+
+
+
+如何使用
+
+你可以不带参数执行它以查看默认文件集。
+
+linuxmi@linuxmi:~/www.linuxmi.com$ lnav
+
+使用 lnav 查看特定日志文件
+
+要用 lnav 查看特定的日志文件，在 lnav 命令后面添加日志文件路径。例如我们想看 /var/log/dpkg.log 日志文件。如下图：
+
+linuxmi@linuxmi:~/www.linuxmi.com$ lnav /var/log/dpkg.log
+
+
+
+查看多个日志文件
+
+linuxmi@linuxmi:~/www.linuxmi.com$ lnav /var/log/dpkg.log /var/log/kern.log
+
+查看压缩的日志文件
+
+linuxmi@linuxmi:~/www.linuxmi.com$ lnav -r /var/log/Xorg.0.log.old.gz
+
+直方图视图
+
+首先运行 lnav 然后按 i 键切换到/出直方图视图。
+
+
+
+你可以搜索任何给定的字符串，它会在屏幕上高亮显示。首先运行 lnav 然后按 / 键并输入你想查找的字符串。为了测试，我搜索字符串 ubuntu，看下面的截图。
+
+
+
+查看日志解析器结果
+
+首先运行 lnav 然后按 p 键打开显示日志解析器结果。使用 lnav 查看特定日志文件
+要用 lnav 查看特定的日志文件，在 lnav 命令后面添加日志文件路径。例如我们想看 /var/log/dpkg.log 日志文件。
+
+
+
+
+
+
+
+echo -e "${PURPLE_BLACK}**************************** lsd  *********************${COLOR_RESET}\n"
+
+cargo install lsd
+
+或
+curl -LO https://github.com/Peltoche/lsd/releases/download/0.21.0/lsd_0.21.0_amd64.deb
+
+dpkg -i lsd_0.21.0_amd64.deb
+
+或
+wget https://github.com/Peltoche/lsd/releases/download/0.16.0/lsd-0.16.0-x86_64-unknown-linux-musl.tar.gz
+tar zxvf lsd-0.16.0-x86_64-unknown-linux-musl.tar.gz
+cd lsd-0.16.0-x86_64-unknown-linux-musl 
+cp ./lsd /usr/local/bin/
+
+
+
+echo -e "${PURPLE_BLACK}****************************diff-so-fancy[11]是 git diff 的替代品  *********************${COLOR_RESET}\n"
+
+
+npm install -g diff-so-fancy
+
+直接可以在命令行调用
+
+# git diff --color | diff-so-fancy
+通过上述方式使用 diff-so-fancy 虽简单，但会把所有结果全部输出，并没显得差异化。我们可以通过设置 pager 对结果进行分页配置 git 以 diff-so-fancy 用于所有差异输出：
+
+# git config --global core.pager " diff-so-fancy | less --tabs=4 -RFX " 
+# git config --global interactive.diffFilter " diff-so-fancy --patch "
+将 diff-so-fancy 配置为 Git 的默认 diff 工具就可以了，每次执行 git diff，就会输出它的执行结果。
+
+
+
+echo -e "${PURPLE_BLACK}**************************** bat  *********************${COLOR_RESET}\n"
+
+
+
+
+
+echo -e "${PURPLE_BLACK}**************************** colordiff  *********************${COLOR_RESET}\n"
+
+
+sudo apt install colordiff
+
+现在 检查两个文件之间的差异，在终端（Ctrl + Alt + T）中，我们将使用以下命令：
+
+	
+colordiff archivo1.txt archivo2.txt
+
+还 我们将有可能使用diff命令并将其输出传递给colordiff，如以下命令所示：	
+diff -u archivo1.txt archivo2.txt | colordiff
+
+
+
+sudo apt install grc
+
+如下面的示例所示，它的语法非常简单：
+grc diff archivo1.txt archivo2.txt
+
+另一个可用的工具是 伊迪夫。 安装它就像打开终端（Ctrl + Alt + T）并使用以下命令一样简单：
+sudo apt install icdiff
+该工具的语法与本文中看到的先前选项一样简单
+icdiff archivo1.txt archivo2.txt
+
+另一个选择是使用vimdiff命令通过Vim编辑文件的两个或多个版本并显示差异：
+
+vimdiff linuxidc linux
+
+
+
+
+echo -e "${PURPLE_BLACK}****************************nmon 是一个系统管理员调谐器和基准测试工具  *********************${COLOR_RESET}\n"
+
+
+
+sudo apt install nmon
+
+echo -e "${PURPLE_BLACK}****************************如何在Linux上安装inxi ?  *********************${COLOR_RESET}\n"
+
+sudo apt install inxi
+
+
+显示硬盘和内存使用情况:
+sudo inxi -D -m
+
+
+
+要获取设备驱动程序、mac ID、接口以及IP地址等网络细节，可以使用 -n 或 --network-advanced  和 -i 或 --ip 选项组合。
+inix -ni -c31
+
+
+
+改变输出颜色
+
+通过使用-c99选项选择全局配色方案，您还可以将特定的颜色类型设置为默认。
+
+inxi -b -c99
+
+
+
+或者，如果你想知道完整的细节，请传递 -F 或 --full 参数。
+
+inxi -F
+
+
+如果您想知道系统的基本细节，请使用 -b 或者 --basic 选项。
+
+inxi -b
+
+
+
+
+echo -e "${PURPLE_BLACK}****************************dstat 是一款生成Linux系统资源统计信息的功能强大、灵活和通用的工具 *********************${COLOR_RESET}\n"
+
+
+
+Ubuntu/Mint和Debin系统：
+本地软件库中有相关安装包，你可以用下面命令安装：
+# sudo apt-get install dstat
+
+
+-c：显示CPU系统占用，用户占用，空闲，等待，中断，软件中断等信息。
+
+-C：当有多个CPU时候，此参数可按需分别显示cpu状态，例：-C 0,1 是显示cpu0和cpu1的信息。
+
+-d：显示磁盘读写数据大小。
+
+-D hda,total：include hda and total。
+
+-n：显示网络状态。
+
+-N eth1,total：有多块网卡时，指定要显示的网卡。
+
+-l：显示系统负载情况。
+
+-m：显示内存使用情况（包括used，buffer，cache，free值）。
+
+-g：显示页面使用情况。
+
+-p：显示进程状态。
+
+-s：显示交换分区使用情况。
+
+-S：类似D/N。
+
+-r：I/O请求情况。
+
+-y：系统状态。
+-t ：将当前时间显示在第一行
+
+--ipc：显示ipc消息队列，信号等信息。
+
+--socket：用来显示tcp udp端口状态。
+
+-a：此为默认选项，等同于-cdngy。
+
+-v：等同于 -pmgdsc -D total。
+–socket ：显示网络统计数据
+–tcp ：显示常用的TCP统计
+–udp ：显示监听的UDP接口及其当前用量的一些动态数据–fs ：显示文件系统统计数据（包括文件总数量和inodes值）
+–nocolor ：不显示颜色（有时候有用）
+
+--output 文件：此选项也比较有用，可以把状态信息以csv的格式重定向到指定的文件中，以便日后查看。例：dstat --output /root/dstat.csv & 此时让程序默默的在后台运行并把结果输出到/root/dstat.csv文件中。
+
+
+
+显示一些关于CPU资源损耗的数据：
+# dstat -c -y -l --proc-count --top-cpu
+
+
+
+查看全部内存都有谁在占用：
+# dstat -g -l -m -s --top-mem
+
+
