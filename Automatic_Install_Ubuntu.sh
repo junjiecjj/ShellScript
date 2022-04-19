@@ -639,6 +639,19 @@ echo -e "您只需要在 .config 目录中创建一个配置文件（TOML 文件
 
 mkdir -p ~/.config && touch ~/.config/starship.toml
 
+echo -e "${GREEN_BLACK}************************* 安装lua  *************************${COLOR_RESET}\n"
+cd ~/tmp
+curl -R -O http://www.lua.org/ftp/lua-5.4.4.tar.gz
+tar zxf lua-5.4.4.tar.gz
+cd lua-5.4.4
+sudo make all test
+sudo make install
+
+sudo apt-get install libreadline-dev
+
+
+
+
 echo -e "${GREEN_BLACK}************************* 27 安装vim使用的plugin插件 *************************${COLOR_RESET}\n"
 cd
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
