@@ -1115,15 +1115,25 @@ fd -E lib readme
 fd  -E '*.js' -tf  . source/lib/fastclick
 
 
+echo -e "${GREEN_BLACK}************************* 19、安装logo-ls *************************${COLOR_RESET} \n"
+cd ~/tmp
 
+wget -q https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_Linux_x86_64.tar.gz
 
+tar zxvf logo-ls_Linux_x86_64.tar.gz
+
+cd logo-ls_Linux_x86_64/
+
+sudo install -v logo-ls /usr/local/bin/
+
+sudo cp logo-ls.1.gz /usr/share/man/man1/
 
 echo -e "${PURPLE_BLACK}**************************** exa *********************${COLOR_RESET}\n"
 
 sudo apt install exa
 
 wget -c https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
-unzip exa-linux-x86_64-0.9.0.zip 
+unzip exa-linux-x86_64-0.9.0.zip
 mv exa-linux-x86_64 /usr/local/bin/exa
 
 
@@ -1323,7 +1333,7 @@ dpkg -i lsd_0.21.0_amd64.deb
 或
 wget https://github.com/Peltoche/lsd/releases/download/0.16.0/lsd-0.16.0-x86_64-unknown-linux-musl.tar.gz
 tar zxvf lsd-0.16.0-x86_64-unknown-linux-musl.tar.gz
-cd lsd-0.16.0-x86_64-unknown-linux-musl 
+cd lsd-0.16.0-x86_64-unknown-linux-musl
 cp ./lsd /usr/local/bin/
 
 
@@ -1338,7 +1348,7 @@ npm install -g diff-so-fancy
 # git diff --color | diff-so-fancy
 通过上述方式使用 diff-so-fancy 虽简单，但会把所有结果全部输出，并没显得差异化。我们可以通过设置 pager 对结果进行分页配置 git 以 diff-so-fancy 用于所有差异输出：
 
-# git config --global core.pager " diff-so-fancy | less --tabs=4 -RFX " 
+# git config --global core.pager " diff-so-fancy | less --tabs=4 -RFX "
 # git config --global interactive.diffFilter " diff-so-fancy --patch "
 将 diff-so-fancy 配置为 Git 的默认 diff 工具就可以了，每次执行 git diff，就会输出它的执行结果。
 
@@ -1357,10 +1367,10 @@ sudo apt install colordiff
 
 现在 检查两个文件之间的差异，在终端（Ctrl + Alt + T）中，我们将使用以下命令：
 
-	
+
 colordiff archivo1.txt archivo2.txt
 
-还 我们将有可能使用diff命令并将其输出传递给colordiff，如以下命令所示：	
+我们将有可能使用diff命令并将其输出传递给colordiff，如以下命令所示：
 diff -u archivo1.txt archivo2.txt | colordiff
 
 
