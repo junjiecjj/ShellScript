@@ -1,0 +1,116 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/jack/公共的/ShellScript/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+ASSS	fundenment.sh	/^cat << ASSS$/;"	h
+DIR_OF_THIRD_PARTY	.ycm_extra_conf.py	/^DIR_OF_THIRD_PARTY = p.join( DIR_OF_THIS_SCRIPT, 'third_party' )$/;"	v
+DIR_OF_THIS_SCRIPT	.ycm_extra_conf.py	/^DIR_OF_THIS_SCRIPT = p.abspath( p.dirname( __file__ ) )$/;"	v
+DIR_OF_WATCHDOG_DEPS	.ycm_extra_conf.py	/^DIR_OF_WATCHDOG_DEPS = p.join( DIR_OF_THIRD_PARTY, 'watchdog_deps' )$/;"	v
+EOF	Disk.sh	/^:<<EOF#! \/usr\/bin\/env bash$/;"	h
+EOF	HardWare.sh	/^:<<EOF$/;"	h
+EOF	Memory.sh	/^::<<EOF$/;"	h
+EOF	Network.sh	/^:<<EOF$/;"	h
+EOF	colorprint.sh	/^:<<EOF$/;"	h
+EOF	example/FTPDown.sh	/^ftp -n -v <<EOF # -n 自动登录$/;"	h
+EOF	example/except.sh	/^expect << EOF$/;"	h
+EOF	fundenment.sh	/^:<<EOF$/;"	h
+EOF	fundenment.sh	/^<<EOF$/;"	h
+EOF	fundenment.sh	/^cat << EOF > linuxmi.com.txt$/;"	h
+EOF	fundenment.sh	/^cat << EOF >> linuxmi.txt$/;"	h
+EOF	fundenment.sh	/^cat << EOF$/;"	h
+EOF	rebootARM.sh	/^cat <<EOF$/;"	h
+EOF	rebootARM.sh	/^expect <<EOF$/;"	h
+EOF	systeminfo.sh	/^:<<EOF$/;"	h
+EOF	tcpdump.sh	/^::<<EOF$/;"	h
+FindCorrespondingSourceFile	.ycm_extra_conf.py	/^def FindCorrespondingSourceFile( filename ):$/;"	f
+IsHeaderFile	.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	f
+PathToPythonUsedDuringBuild	.ycm_extra_conf.py	/^def PathToPythonUsedDuringBuild():$/;"	f
+PythonSysPath	.ycm_extra_conf.py	/^def PythonSysPath( **kwargs ):$/;"	f
+SOURCE_EXTENSIONS	.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
+Settings	.ycm_extra_conf.py	/^def Settings( **kwargs ):$/;"	f
+This is the page title	sed/data.html	/^    <title>This is the page title<\/title>$/;"	j
+\x21	theme_400.sh	/^		cat << "!"$/;"	h
+add	theme_400.sh	/^add() {$/;"	f
+apply_theme	theme_400.sh	/^apply_theme() {$/;"	f
+bash_os	systemMonitor.sh	/^function bash_os() {$/;"	f
+bgesc	theme_400.sh	/^		function bgesc(col) {$/;"	f
+block	example/unormalIP.sh	/^block() {$/;"	f
+check_ip	example/legealIP.sh	/^function check_ip() {$/;"	f
+check_service	example/httpd.sh	/^check_service() {$/;"	f
+chkProp	theme_400.sh	/^		function chkProp(prop) {$/;"	f
+cleanup	pipe.sh	/^cleanup() {$/;"	f
+cmp	theme_400.sh	/^		function cmp(a,b,ordTbl,    i,c1,c2,n) {$/;"	f
+compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
+cpu	systemMonitor.sh	/^function cpu() {$/;"	f
+database	.ycm_extra_conf.py	/^database = None$/;"	v
+disk_io	systemMonitor.sh	/^function disk_io() {$/;"	f
+fd	Automatic_Install_Ubuntu.sh	/^alias fd=fdfind$/;"	a
+fgesc	theme_400.sh	/^		function fgesc(col) {$/;"	f
+flags	.ycm_extra_conf.py	/^flags = [$/;"	v
+func1	fundenment.sh	/^func1()$/;"	f
+generate_themes	theme_400.sh	/^generate_themes() {$/;"	f
+green	colorprint.sh	/^function green() {$/;"	f
+hextorgb	theme_400.sh	/^		function hextorgb(s) {$/;"	f
+install_nvm_as_script	nodejsInstall.sh	/^install_nvm_as_script() {$/;"	f
+install_nvm_from_git	nodejsInstall.sh	/^install_nvm_from_git() {$/;"	f
+isColorTerm	theme_400.sh	/^isColorTerm() {$/;"	f
+list	theme_400.sh	/^list() {$/;"	f
+log_always	log.sh	/^function log_always(){$/;"	f
+log_debug	log.sh	/^function log_debug(){$/;"	f
+log_err	log.sh	/^function log_err(){$/;"	f
+log_info	log.sh	/^function log_info(){$/;"	f
+log_warn	log.sh	/^function log_warn(){$/;"	f
+luma	theme_400.sh	/^		function luma(s,    r,g,b,hexchars) {$/;"	f
+max	gawk/fun.awk	/^function max(v1,v2) {$/;"	f
+memory	systemMonitor.sh	/^function memory() {$/;"	f
+network	systemMonitor.sh	/^function network() {$/;"	f
+normalize_term	theme_400.sh	/^		normalize_term()$/;"	f
+normalize_term	theme_400.sh	/^	function normalize_term() {$/;"	f
+normalize_themes	theme_400.sh	/^normalize_themes() {$/;"	f
+nvm_check_global_modules	nodejsInstall.sh	/^nvm_check_global_modules() {$/;"	f
+nvm_default_install_dir	nodejsInstall.sh	/^nvm_default_install_dir() {$/;"	f
+nvm_detect_profile	nodejsInstall.sh	/^nvm_detect_profile() {$/;"	f
+nvm_do_install	nodejsInstall.sh	/^nvm_do_install() {$/;"	f
+nvm_download	nodejsInstall.sh	/^nvm_download() {$/;"	f
+nvm_echo	nodejsInstall.sh	/^nvm_echo() {$/;"	f
+nvm_grep	nodejsInstall.sh	/^nvm_grep() {$/;"	f
+nvm_has	nodejsInstall.sh	/^nvm_has() {$/;"	f
+nvm_install_dir	nodejsInstall.sh	/^nvm_install_dir() {$/;"	f
+nvm_install_node	nodejsInstall.sh	/^nvm_install_node() {$/;"	f
+nvm_latest_version	nodejsInstall.sh	/^nvm_latest_version() {$/;"	f
+nvm_node_version	nodejsInstall.sh	/^nvm_node_version() {$/;"	f
+nvm_profile_is_bash_or_zsh	nodejsInstall.sh	/^nvm_profile_is_bash_or_zsh() {$/;"	f
+nvm_reset	nodejsInstall.sh	/^nvm_reset() {$/;"	f
+nvm_source	nodejsInstall.sh	/^nvm_source() {$/;"	f
+nvm_try_profile	nodejsInstall.sh	/^nvm_try_profile() {$/;"	f
+p	.ycm_extra_conf.py	/^import os.path as p$/;"	I	nameref:module:os.path
+preview	theme_400.sh	/^preview() {$/;"	f
+preview2	theme_400.sh	/^preview2() {$/;"	f
+printTheme	theme_400.sh	/^				printTheme()$/;"	f
+printTheme	theme_400.sh	/^		END { if(!aborted) printTheme() }$/;"	f
+printTheme	theme_400.sh	/^		function printTheme(    name,i,prop) {$/;"	f
+print_current_theme	theme_400.sh	/^print_current_theme() {$/;"	f
+print_response	theme_400.sh	/^	function print_response(s) {$/;"	f
+procs	systemMonitor.sh	/^function procs() {$/;"	f
+puts	theme_400.sh	/^		function puts(s,   len,   i,   normesc,   filling) {$/;"	f
+read_response	theme_400.sh	/^		print_response(read_response())$/;"	f
+read_response	theme_400.sh	/^	function read_response() {$/;"	f
+rebootARMMulti	rebootARM.sh	/^function rebootARMMulti() {$/;"	f
+rebootARMSingle	rebootARM.sh	/^function rebootARMSingle(){$/;"	f
+red	colorprint.sh	/^function red() {$/;"	f
+set_current_theme	theme_400.sh	/^set_current_theme() {$/;"	f
+shell_script	README.md	/^# shell_script$/;"	c
+sort	theme_400.sh	/^		function sort(a,n,    i,j,tmp,ordTbl) {$/;"	f
+sortKeys	theme_400.sh	/^		function sortKeys(a,keys,    n,k) {$/;"	f
+systime	gawk/gawk.sh	/^date = systime()$/;"	f
+test1	grep.sh	/^function test1(){$/;"	f
+tmuxesc	theme_400.sh	/^	function tmuxesc(s) { return sprintf("\\033Ptmux;\\033%s\\033\\\\", s) }$/;"	f
+unblock	example/unormalIP.sh	/^unblock() {$/;"	f
+yellow	colorprint.sh	/^function yellow() {$/;"	f

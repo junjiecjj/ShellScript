@@ -84,6 +84,9 @@ echo ${PASSWD} | sudo -S apt upgrade -y
 echo -e "${GREEN_BLACK}************************* 2、安装FVWM *************************${COLOR_RESET}\n"
 echo ${PASSWD} | sudo -S apt install -y fvwm
 
+
+
+
 echo -e "${GREEN_BLACK}************************* 3、安装字体 文泉驿微米黑 *************************${COLOR_RESET}\n"
 echo ${PASSWD} | sudo -S apt install -y fonts-wqy-microhei
 echo ${PASSWD} | sudo -S apt install -y fonts-wqy-zenhei
@@ -1495,4 +1498,66 @@ Ubuntu/Mint和Debin系统：
 查看全部内存都有谁在占用：
 # dstat -g -l -m -s --top-mem
 
+echo -e "${PURPLE_BLACK}************************* i3WM配置 *************************${COLOR_RESET}\n"
+echo -e "${PURPLE_BLACK}************************* 安装picom *************************${COLOR_RESET}\n"
+
+cd ~/tmp
+sudo apt install cmake meson git pkg-config asciidoc libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+git clone https://github.com/jonaburg/picom.git
+cd picom
+git submodule update --init --recursive
+meson --buildtype=release . build
+LDFLAGS="-L/path/to/libraries" CPPFLAGS="-I/path/to/headers" meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
+cd
+# 有时使用像 双河濑 你需要指定 – 实验后端 标志如下：
+$ picom --config /path/to/config/files --experimental-backends -b
+
+
+echo -e "${PURPLE_BLACK}************************* 安装polybar *************************${COLOR_RESET}\n"
+echo ${PASSWD} | sudo -S echo "deb http://cz.archive.ubuntu.com/ubuntu groovy main universe" >>/etc/apt/sources.list
+echo ${PASSWD} | sudo -S apt updade
+echo ${PASSWD} | sudo -S apt install -y polybar
+
+echo -e "${PURPLE_BLACK}************************* 安装 其他服务软件 *************************${COLOR_RESET}\n"
+
+sudo  apt install -y suckless-tools libx11-dev libxft-dev libxinerama-dev gcc make
+
+echo -e "${PURPLE_BLACK}************************* 背光灯调整工具 *************************${COLOR_RESET}\n"
+sudo  apt install -y light
+
+echo -e "${PURPLE_BLACK}************************* 安装数字键盘工具, 用于进入dwm桌面后自动开启数字键盘 *************************${COLOR_RESET}\n"
+sudo  apt install -y numlockx
+
+sudo  apt install -y virtualbox-guest-utils virtualbox-guest-X11
+
+echo -e "${PURPLE_BLACK}*************************  电源监控工具 *************************${COLOR_RESET}\n"
+sudo  apt install -y acpi acpitool
+
+echo -e "${PURPLE_BLACK}************************* 透明配置支持 *************************${COLOR_RESET}\n"
+sudo  apt install -y compton
+sudo  apt install -y xcompmg
+
+echo -e "${PURPLE_BLACK}************************* 背景图片设置工具 *************************${COLOR_RESET}\n"
+sudo  apt install -y feh
+
+echo -e "${PURPLE_BLACK}*************************用于屏幕亮度的调节 *************************${COLOR_RESET}\n"
+sudo  apt install -y xbacklight
+
+echo -e "${PURPLE_BLACK}************************** 安装 nm-applet *************************${COLOR_RESET}\n"
+sudo  apt install -y network-manager-gnome
+
+echo -e "${PURPLE_BLACK}**************************  锁屏 *************************${COLOR_RESET}\n"
+sudo  apt install slimlock
+
+echo -e "${PURPLE_BLACK}************************** rofi 是一个快捷的程序启动器 *************************${COLOR_RESET}\n"
+sudo  apt install -y rofi
+
+echo -e "${PURPLE_BLACK}************************* 安装dwmstatus *************************${COLOR_RESET}\n"
+git clone git://git.suckless.org/dwmstatus
+cd dwmstatus
+make
+sudo ake PREFIX=/usr install
+cd
 
