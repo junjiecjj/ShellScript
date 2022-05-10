@@ -1515,6 +1515,8 @@ cd
 $ picom --config /path/to/config/files --experimental-backends -b
 
 
+sudo apt install compton xcompmgr
+
 echo -e "${PURPLE_BLACK}************************* 安装polybar *************************${COLOR_RESET}\n"
 echo ${PASSWD} | sudo -S echo "deb http://cz.archive.ubuntu.com/ubuntu groovy main universe" >>/etc/apt/sources.list
 echo ${PASSWD} | sudo -S apt updade
@@ -1549,8 +1551,20 @@ echo -e "${PURPLE_BLACK}************************** 安装 nm-applet ************
 sudo  apt install -y network-manager-gnome
 
 echo -e "${PURPLE_BLACK}**************************  锁屏 *************************${COLOR_RESET}\n"
-sudo  apt install slimlock
+sudo  apt install slimlock  i3lock-fancy
 
+
+echo -e "${PURPLE_BLACK}**************************  蓝牙 *************************${COLOR_RESET}\n"
+
+sudo apt install blueman
+
+
+sudo apt install alsa-utils  mate-power-manager  acpi  alsa-utils
+
+# mate-power-manager 电源管理工具
+# acpi 电源配置接口工具(用于显示电池信息)
+# alsa-utils 声音管理
+# xfce4-appfinder 可以快速搜索程序的启动器
 echo -e "${PURPLE_BLACK}************************** rofi 是一个快捷的程序启动器 *************************${COLOR_RESET}\n"
 sudo  apt install -y rofi
 
@@ -1561,3 +1575,8 @@ make
 sudo ake PREFIX=/usr install
 cd
 
+
+echo -e "${PURPLE_BLACK}************************** 护眼工具redshift *************************${COLOR_RESET}\n"
+
+sudo apt-get update
+sudo apt-get install redshift-gtk
