@@ -1516,10 +1516,17 @@ ninja -C build
 sudo ninja -C build install
 cd
 # 有时使用像 双河濑 你需要指定 – 实验后端 标志如下：
-$ picom --config /path/to/config/files --experimental-backends -b
+$ picom --config  ~/.config/picom/picom.conf --experimental-backends -b
+$ picom --experimental-backends -b
 
 
 sudo apt install compton xcompmgr
+
+
+echo -e "${PURPLE_BLACK}************************* 安装 i3-gaps *************************${COLOR_RESET}\n"
+sudo add-apt-repository ppa:regolith-linux/release
+sudo apt update
+sudo apt install i3-gaps
 
 echo -e "${PURPLE_BLACK}************************* 安装polybar *************************${COLOR_RESET}\n"
 echo ${PASSWD} | sudo -S echo "deb http://cz.archive.ubuntu.com/ubuntu groovy main universe" >>/etc/apt/sources.list
