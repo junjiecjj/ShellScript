@@ -1528,7 +1528,7 @@ echo ${PASSWD} | sudo -S apt install -y polybar
 
 echo -e "${PURPLE_BLACK}************************* 安装 其他服务软件 *************************${COLOR_RESET}\n"
 
-sudo  apt install -y suckless-tools libx11-dev libxft-dev libxinerama-dev gcc make
+sudo  apt install -y suckless-tools libx11-dev libxft-dev libxinerama-dev gcc make feh
 
 echo -e "${PURPLE_BLACK}************************* 背光灯调整工具 *************************${COLOR_RESET}\n"
 sudo  apt install -y light
