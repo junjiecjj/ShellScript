@@ -445,7 +445,11 @@ echo ${PASSWD} | sudo -S mv exa-linux-x86_64 /usr/local/bin/exa
 cd
 echo -e "${GREEN_BLACK}************************* 20、安装ranger *************************${COLOR_RESET}\n"
 
-echo ${PASSWD} | sudo -S apt install -y ranger caca-utils highlight atool w3m mediainfo catdoc docx2txt xlsx2csv
+sudo apt install python3-pip
+
+pip3 install  ueberzug
+
+sudo  apt install -y ranger caca-utils highlight atool w3m mediainfo catdoc docx2txt xlsx2csv
 
 echo -e "${GREEN_BLACK}************************* 21、安装 Glances、sysstat、dstat、duf *************************${COLOR_RESET}\n"
 
@@ -1559,12 +1563,13 @@ echo -e "${PURPLE_BLACK}**************************  蓝牙 *********************
 sudo apt install blueman
 
 
-sudo apt install alsa-utils  mate-power-manager  acpi  alsa-utils
+sudo apt install alsa-utils  mate-power-manager  acpi  alsa-utils nitrogen
 
 # mate-power-manager 电源管理工具
 # acpi 电源配置接口工具(用于显示电池信息)
 # alsa-utils 声音管理
 # xfce4-appfinder 可以快速搜索程序的启动器
+# nitrogen 壁纸管理器
 echo -e "${PURPLE_BLACK}************************** rofi 是一个快捷的程序启动器 *************************${COLOR_RESET}\n"
 sudo  apt install -y rofi
 
