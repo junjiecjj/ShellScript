@@ -1592,3 +1592,30 @@ echo -e "${PURPLE_BLACK}************************** 护眼工具redshift ********
 
 sudo apt-get update
 sudo apt-get install redshift-gtk
+
+
+
+
+echo -e "${PURPLE_BLACK}**************************  Spotify是一个音乐流媒体服务商*************************${COLOR_RESET}\n"
+
+sudo snap install spotify
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4773BD5E130D1D45
+
+
+
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
+
+sudo apt update
+sudo apt install spotify-client
+
+
+
+
+
+
+
+
+
+
