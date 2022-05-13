@@ -1571,6 +1571,21 @@ cd i3status-2/.14
   ninja
   sudo ninja install
 
+
+echo -e "${PURPLE_BLACK}************************* i3blocks *************************${COLOR_RESET}\n"
+cd ~/tmp
+
+git clone https://github.com/vivien/i3blocks.git
+
+
+cd i3blocks
+./autogen.sh
+./configure
+sudo make
+sudo make install
+
+
+
 echo -e "${PURPLE_BLACK}************************* 背光灯调整工具 *************************${COLOR_RESET}\n"
 sudo  apt install -y light
 
