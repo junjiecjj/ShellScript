@@ -1537,6 +1537,22 @@ echo -e "${PURPLE_BLACK}************************* 安装 其他服务软件 ****
 
 sudo  apt install -y suckless-tools libx11-dev libxft-dev libxinerama-dev gcc make feh
 
+sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev libtool
+
+sudo apt-get install automake
+
+sudo apt-get install libxcb-xrm-dev
+
+
+sudo apt install libxcb-shape0-dev
+
+sudo apt-get install libpcre3-dev
+
+sudo apt-get install libcairo2-dev
+
+sudo apt-get install libpango1.0-dev
+
+
 echo -e "${PURPLE_BLACK}************************* 背光灯调整工具 *************************${COLOR_RESET}\n"
 sudo  apt install -y light
 
