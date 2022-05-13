@@ -1553,6 +1553,24 @@ sudo apt-get install libcairo2-dev
 sudo apt-get install libpango1.0-dev
 
 
+echo -e "${PURPLE_BLACK}************************* i3status *************************${COLOR_RESET}\n"
+
+sudo apt-get install autoconf libconfuse-dev libyajl-dev libasound2-dev libiw-dev asciidoc libpulse-dev libnl-genl-3-dev meson
+
+
+https://i3wm.org/i3status/  下载i3status安装包
+解压缩
+cd i3status-2/.14
+
+╭─   ~/下载/i3status-2.14/                                                                                                                                                       ✘ INT  base at  17:49:48
+╰─❯
+
+  mkdir build
+  cd build
+  meson ..
+  ninja
+  sudo ninja install
+
 echo -e "${PURPLE_BLACK}************************* 背光灯调整工具 *************************${COLOR_RESET}\n"
 sudo  apt install -y light
 
