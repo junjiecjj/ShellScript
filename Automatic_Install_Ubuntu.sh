@@ -1584,6 +1584,17 @@ cd i3blocks
 sudo make
 sudo make install
 
+echo -e "${PURPLE_BLACK}************************* i3blocks *************************${COLOR_RESET}\n"
+
+wget https://github.com/pavanjadhaw/betterlockscreen/archive/refs/heads/main.zip
+unzip main.zip
+
+cd betterlockscreen-main/
+chmod u+x betterlockscreen
+cp betterlockscreen /usr/local/bin/
+
+cp system/betterlockscreen@.service /usr/lib/systemd/system/
+systemctl enable betterlockscreen@$USER
 
 
 echo -e "${PURPLE_BLACK}************************* 背光灯调整工具 *************************${COLOR_RESET}\n"
