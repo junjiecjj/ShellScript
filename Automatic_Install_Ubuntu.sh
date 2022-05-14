@@ -1584,7 +1584,22 @@ cd i3blocks
 sudo make
 sudo make install
 
+
 echo -e "${PURPLE_BLACK}************************* i3blocks *************************${COLOR_RESET}\n"
+sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+
+To build/install i3lock-color, first install the dependencies listed above, then clone the repo:
+
+git clone https://github.com/Raymo111/i3lock-color.git
+cd i3lock-color
+To build without installing, run:
+
+./build.sh
+To build AND install, run:
+
+./install-i3lock-color.sh
+
+echo -e "${PURPLE_BLACK}************************* 锁屏管理器：betterlockscreen, xautolock*************************${COLOR_RESET}\n"
 
 wget https://github.com/pavanjadhaw/betterlockscreen/archive/refs/heads/main.zip
 unzip main.zip
@@ -1596,6 +1611,8 @@ cp betterlockscreen /usr/local/bin/
 cp system/betterlockscreen@.service /usr/lib/systemd/system/
 systemctl enable betterlockscreen@$USER
 
+
+sudo apt install xautolock
 
 echo -e "${PURPLE_BLACK}************************* 背光灯调整工具 *************************${COLOR_RESET}\n"
 sudo  apt install -y light
