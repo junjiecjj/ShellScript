@@ -1523,6 +1523,7 @@ $ picom --experimental-backends -b
 sudo apt install compton xcompmgr
 
 
+
 echo -e "${PURPLE_BLACK}************************* 安装 i3-gaps *************************${COLOR_RESET}\n"
 sudo add-apt-repository ppa:regolith-linux/release
 sudo apt update
@@ -1585,21 +1586,47 @@ sudo make
 sudo make install
 
 
-echo -e "${PURPLE_BLACK}************************* i3blocks *************************${COLOR_RESET}\n"
+echo -e "${PURPLE_BLACK}************************* 安装 i3lock *************************${COLOR_RESET}\n"
+sudo apt-get install i3lock
+
+
+
+echo -e "${PURPLE_BLACK}************************* i3lock-fancy *************************${COLOR_RESET}\n"
+
+cd ~/tmp
+
+git clone https://github.com/meskarune/i3lock-fancy.git
+
+cd i3lock-fancy
+
+sudo make install
+
+cd
+
+echo -e "${PURPLE_BLACK}************************* i3lock-color *************************${COLOR_RESET}\n"
+
 sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 
-To build/install i3lock-color, first install the dependencies listed above, then clone the repo:
+sudo apt install libpam0g-dev
+
 
 git clone https://github.com/Raymo111/i3lock-color.git
 cd i3lock-color
-To build without installing, run:
 
 ./build.sh
-To build AND install, run:
 
 ./install-i3lock-color.sh
 
 echo -e "${PURPLE_BLACK}************************* 锁屏管理器：betterlockscreen, xautolock*************************${COLOR_RESET}\n"
+
+# 依赖以下：
+# i3lock-color >= 2.13.c.3
+# ImageMagick
+# xdpyinfo, xrandr, xrdb and xset from X.Org
+# (Optional) Dunst
+# (Optional) feh for wallpaper-functionality
+# Note: Make sure your system has all dependencies satisfied
+
 
 wget https://github.com/pavanjadhaw/betterlockscreen/archive/refs/heads/main.zip
 unzip main.zip
