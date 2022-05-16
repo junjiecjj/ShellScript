@@ -1554,7 +1554,7 @@ sudo apt-get install libcairo2-dev
 sudo apt-get install libpango1.0-dev
 
 
-echo -e "${PURPLE_BLACK}************************* i3status *************************${COLOR_RESET}\n"
+echo -e "${PURPLE_BLACK}************************* i3status 状态栏*************************${COLOR_RESET}\n"
 
 sudo apt-get install autoconf libconfuse-dev libyajl-dev libasound2-dev libiw-dev asciidoc libpulse-dev libnl-genl-3-dev meson
 
@@ -1573,7 +1573,23 @@ cd i3status-2/.14
   sudo ninja install
 
 
-echo -e "${PURPLE_BLACK}************************* i3blocks *************************${COLOR_RESET}\n"
+echo -e "${PURPLE_BLACK}************************* dunst  *************************${COLOR_RESET}\n"
+sudo apt install dunst
+
+或
+
+sudo apt install libnotify-dev  libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
+
+
+cd ~/tmp
+git clone https://github.com/dunst-project/dunst.git
+cd dunst
+make
+sudo make install
+
+
+
+echo -e "${PURPLE_BLACK}************************* i3blocks 状态栏*************************${COLOR_RESET}\n"
 cd ~/tmp
 
 git clone https://github.com/vivien/i3blocks.git
@@ -1584,6 +1600,13 @@ cd i3blocks
 ./configure
 sudo make
 sudo make install
+
+
+安装i3block的其他配置工具
+sudo apt install  kbdd    yad xdotool
+
+
+
 
 
 echo -e "${PURPLE_BLACK}************************* 安装 i3lock *************************${COLOR_RESET}\n"
@@ -1616,6 +1639,9 @@ cd i3lock-color
 ./build.sh
 
 ./install-i3lock-color.sh
+
+
+
 
 echo -e "${PURPLE_BLACK}************************* 锁屏管理器：betterlockscreen, xautolock*************************${COLOR_RESET}\n"
 
