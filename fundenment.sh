@@ -925,6 +925,43 @@ else
 fi
 
 
+# process=`ps -ef| grep dwmblocks | grep -v grep`; #查询mysqld进程，grep -v grep去掉grep进程
+process=$(ps -ef| grep dwmblocks | grep -v grep); #查询mysqld进程，grep -v grep去掉grep进程
+
+if [ "${process}" == "" ]; then
+        sleep 1;
+        echo "process 不存在,开始执行";
+else
+        echo "process 已经存在，需要重启";
+        # break;
+fi
+
+
+
+
+
+
+# process=`ps -ef| grep dwmblocks | grep -v grep`; #查询mysqld进程，grep -v grep去掉grep进程
+process=$(ps -ef| grep dwmblocks | grep -v grep); #查询mysqld进程，grep -v grep去掉grep进程
+
+if [ "${process}" = "" ]; then
+        sleep 1;
+        echo "process 不存在,开始执行";
+else
+        echo "process 已经存在，需要重启";
+        # break;
+fi
+
+
+count=`ps -ef |grep dwmblocks |grep -v grep |wc -l`
+echo $count
+
+if [ 0 == $count ];then
+    echo  "不存在，启动"
+else
+    echo -e "已经存在，需要重启"
+fi
+
 
 echo -e "\n ${WHITE_BLUE}------------------------18.  -------------------------${COLOR_RESET}\n"
 <<EOF
