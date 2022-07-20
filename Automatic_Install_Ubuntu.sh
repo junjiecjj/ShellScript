@@ -1361,10 +1361,6 @@ npm install -g diff-so-fancy
 
 
 
-echo -e "${PURPLE_BLACK}**************************** bat  *********************${COLOR_RESET}\n"
-
-
-sudo apt install ncdu
 
 
 echo -e "${PURPLE_BLACK}**************************** colordiff  *********************${COLOR_RESET}\n"
